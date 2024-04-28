@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Arial', sans-serif;
+        }
+    
+        /* Footer styles */
+        footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding 0px;
+          position: fixed;
+          bottom: -10px;
+          width: 100%;
+          margin: 0;
+        }
+    
+        /* JavaScript for current year */
+        function getCurrentYear() {
+          var year = new Date().getFullYear();
+          document.getElementById('currentYear').innerHTML = year;
+        }
+      </style>
+
+</head>
+<header>
+    <nav class="navbar">
+        <div class="navbar-toggle" onclick="toggleNav()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+        <ul class="nav-list" >
+            <li><a href="{{('/')}}">Home</a></li>
+            <li><a href="{{url_for('services')}}">Services</a></li>
+            <li><a href="{{url_for('about')}}">About Me</a></li>
+            <li><a href="{{url_for('contact')}}">Request for Discovery Call</a></li>
+            <li><a href="{{url_for('faq')}}">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div id="chat-container">
+        <div id="chat-messages"><i><i></div>
+        <div id="user-input-container">
+            <input type="text" id="user-input" placeholder="Type here...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value;
+            document.getElementById('user-input').value = '';
+
+            // Append user message to chat
+            document.getElementById('chat-messages').innerHTML += '<div class="user-message">' + userInput + '</div>';
+
+            // Send user input to server
+            fetch('/get_response', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'user_input=' + encodeURIComponent(userInput),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Append chatbot response to chat
+                document.getElementById('chat-messages').innerHTML += '<div class="chatbot-message">' + data.response + '</div>';
+            });
+        }
+        getCurrentYear();
+    </script>
+</div>
+</body>
+<footer>
+    <p>&copy; Olarewaju Olabisi <span id="currentYear"></span></p>
+  </footer>
+</html>

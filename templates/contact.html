@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AI and ML Engineer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        #contact-form {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* Footer styles */
+        footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 0px;
+          position: center;
+          bottom: 0;
+          width: 100%;
+        }
+    
+        /* JavaScript for current year */
+        function getCurrentYear() {
+          var year = new Date().getFullYear();
+          document.getElementById('currentYear').innerHTML = year;
+        }
+
+    </style>
+</head>
+<header>
+    <nav class="navbar">
+        <div class="navbar-toggle" onclick="toggleNav()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+        <ul class="nav-list" >
+            <li><a href="{{('/')}}">Home</a></li>
+            <li><a href="{{url_for('services')}}">Services</a></li>
+            <li><a href="{{url_for('about')}}">About Me</a></li>
+            <li><a href="{{url_for('contact')}}">Request for Discovery Call</a></li>
+            <li><a href="{{url_for('faq')}}">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container">
+    <h1>Fill form to reach me</h1>
+
+    <div id="contact-form">
+        <h2>Get in Touch</h2>
+        <p>Feel free to contact me for inquiries, collaborations, or any questions you may have. I'll get back to you as soon as possible.</p>
+        <form method="POST" id="form">
+
+            <input type="hidden" name="access_key" value="8588d649-0db6-44e1-9efb-3d5be87bd230">
+        
+            <input type="text" name="name" required placeholder="Full name...">
+            <input type="email" name="email" required placeholder="Email">
+            <textarea name="message" required placeholder="Type massage..."></textarea>
+            <div class="h-captcha" data-captcha="true"></div>
+        
+            <button type="submit">Submit</button>
+        
+            <div id="result"></div>
+        
+        </form>
+        <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script src="script.js">
+        getCurrentYear();
+    </script>
+    <script>
+        const form = document.getElementById('form');
+        const result = document.getElementById('result');
+        
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const object = Object.fromEntries(formData);
+          const json = JSON.stringify(object);
+          result.innerHTML = "Please wait..."
+        
+            fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = "Form submitted successfully";
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong!";
+                })
+                .then(function() {
+                    form.reset();
+                    setTimeout(() => {
+                        result.style.display = "none";
+                    }, 3000);
+                });
+        });
+        </script>
+</div>
+</body>
+<footer>
+    <p>&copy; Olarewaju Olabisi <span id="currentYear"></span></p>
+  </footer>
+</html>

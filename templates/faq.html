@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI and ML Engineer FAQ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            
+            text-align: center;
+            color: blue ;
+        }
+
+        .faq-section {
+            margin-top: 30px;
+           
+        }
+
+        .question {
+            cursor: pointer;
+            padding: 10px;
+            background-color: white;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color:black;
+        }
+
+        .answer {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        
+        /* Footer styles */
+        footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 0px;
+          position: center;
+          bottom: 0;
+          width: 100%;
+        }
+    
+        /* JavaScript for current year */
+        function getCurrentYear() {
+          var year = new Date().getFullYear();
+          document.getElementById('currentYear').innerHTML = year;
+        }
+
+    </style>
+</head>
+<header>
+    <nav class="navbar">
+        <div class="navbar-toggle" onclick="toggleNav()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+        <ul class="nav-list" >
+            <li><a href="{{('/')}}">Home</a></li>
+            <li><a href="{{url_for('services')}}">Services</a></li>
+            <li><a href="{{url_for('about')}}">About Me</a></li>
+            <li><a href="{{url_for('contact')}}">Request for Discovery Call</a></li>
+            <li><a href="{{url_for('faq')}}">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container">
+    <h1>AI and ML Engineer FAQ</h1>
+
+    <div class="faq-section">
+        <div class="question" onclick="toggleAnswer('q1')">What is Artificial Intelligence (AI)?</div>
+        <div class="answer" id="q1">Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans.</div>
+        
+        <div class="question" onclick="toggleAnswer('q2')">What is Machine Learning (ML)?</div>
+        <div class="answer" id="q2">Machine Learning is a subset of AI that provides systems the ability to automatically learn and improve from experience without being explicitly programmed.</div>
+
+  <div class="question" onclick="toggleAnswer('q1')">How can I collaborate or work with you on a project?</div>
+        <div class="answer" id="q1">I'm open to collaboration opportunities, whether it's through employment, freelance work, or joint projects, you can navigate to Request for Discovery Call page to reach me.</div>
+        
+        <div class="question" onclick="toggleAnswer('q2')">Can you provide mentorship or consulting services for AI and ML projects?</div>
+        <div class="answer" id="q2">Sure, I'm open to providing mentorship or consulting services and you can reach out to me by heading to the Request for Discovery Call page.</div>
+
+
+  <div class="question" onclick="toggleAnswer('q1')">Can you explain a complex AI/ML concept in simple terms?</div>
+        <div class="answer" id="q1">Sure, I understand the need to communicate undastandably with non-technical stakeholders.</div>
+        
+        <div class="question" onclick="toggleAnswer('q2')">What is your approach to problem-solving in AI and ML?</div>
+        <div class="answer" id="q2">I establish what the problem is, I consider what type of data is suitable for my experiment, I clean my data and verify for anomalies in the data,and I conduct the experiment suitable for my dataset, and I continue to work on my inference models to improve and make my models smarter.</div>
+
+
+  <div class="question" onclick="toggleAnswer('q1')">What industries have you applied AI and ML solutions to?</div>
+        <div class="answer" id="q1">I created a preditive model to help a Microfinance bank verify if the bank customer has the means to pay back granted loan.</div>
+        
+        <div class="question" onclick="toggleAnswer('q2')">Can you share some of your notable projects?</div>
+        <div class="answer" id="q2">I've worked using computer vision library, flask library, predictive models, and conversational chatbot to help improve my clients service delivery and customer satisfaction.</div>
+
+
+  <div class="question" onclick="toggleAnswer('q1')">What programming languages do you specialize in for AI and ML?</div>
+        <div class="answer" id="q1">I work with languages such as Python, js, css, and html.</div>
+        
+        <div class="question" onclick="toggleAnswer('q2')">What is your background in AI and ML?</div>
+        <div class="answer" id="q2">I have worked on diverse projects ranging from natural language processing to computer vision. My expertise includes python, website development, NLP, conversational AI, preditive and generative models, data engineer, Azure and AWS ML Studio.</div>
+
+        <!-- Add more questions and answers as needed -->
+    </div>
+
+    <script src="script.js">
+        function toggleAnswer(questionId) {
+            var answer = document.getElementById(questionId);
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+    </script>
+</div>
+</body>
+<footer>
+    <p>&copy; Olarewaju Olabisi <span id="currentYear"></span></p>
+  </footer>
+</html>

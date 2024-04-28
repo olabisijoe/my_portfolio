@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AI and ML Engineer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: blue ;
+            text-align : center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #profile-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        #skills {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-item {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        #quote {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Footer styles */
+        footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 0px;
+          position: center;
+          bottom: 0;
+          width: 100%;
+        }
+    
+        /* JavaScript for current year */
+        function getCurrentYear() {
+          var year = new Date().getFullYear();
+          document.getElementById('currentYear').innerHTML = year;
+        }
+        .about{
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+       
+    </style>
+</head>
+<header>
+    <nav class="navbar">
+        <div class="navbar-toggle" onclick="toggleNav()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+        <ul class="nav-list" >
+            <li><a href="{{('/')}}">Home</a></li>
+            <li><a href="{{url_for('services')}}">Services</a></li>
+            <li><a href="{{url_for('about')}}">About Me</a></li>
+            <li><a href="{{url_for('contact')}}">Request for Discovery Call</a></li>
+            <li><a href="{{url_for('faq')}}">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container">
+    <h1>About Me</h1>
+
+    <img id="profile-image" src="/static/images/profile_picture.jpeg" alt="Engineer Profile Image">
+    <div class='about'>
+    <h2>Introduction</h2>
+    <p>Hello, my name is Olabisi Olarewaju, and I'm an experienced AI and ML engineer, and I am passionate about pushing the boundaries of technology and solving complex problems through innovative solutions.</p>
+    </div>
+   
+    <div class='about'>
+    <h2>Education</h2>
+    <p>I hold a B.sc degree in Microbiology from Obafemi Awolowo University, ILE-IFE. My one month intensive Applied Artificial Intelligence training with Techunlocknigeria has equipped me with a solid foundation in machine learning, artificial intelligence, and data science.</p>
+    </div>
+    <div class='about'>
+    <h2>Experience</h2>
+    <p>With less than a year of experience in the field, I have worked on diverse projects ranging from natural language processing to computer vision. My expertise includes python, website development, NLP, conversational AI, preditive and generative models, data engineer, Azure and AWS ML Studio.</p>
+</div>
+
+<div class='about'>
+    <h2>Skills</h2>
+    <ul id="skills">
+        <li class="skill-item">Machine Learning</li>
+        <li class="skill-item">Deep Learning</li>
+        <li class="skill-item">Natural Language Processing</li>
+        <li class="skill-item">Data Science</li>
+        <li class="skill-item">Website Developer</li>
+        <li class="skill-item">python developer</li>
+        <li class="skill-item">Chatbot Developer</li>
+        <li class="skill-item">Computer Vision</li>
+        <!-- Add more skills as needed -->
+    </ul>
+</div>
+
+<div class='about'>
+    <h2>Quote</h2>
+    <p id="quote">"In the world of AI and ML, the possibilities are limitless. I am dedicated to pushing the boundaries of what's possible and creating meaningful impact through technology."</p>
+</div>
+    <script src="script.js">
+        // You can add additional JavaScript functionality here if needed
+        getCurrentYear();
+    </script>
+</div>
+</body>
+<footer>
+    <p>&copy; Olarewaju Olabisi <span id="currentYear"></span></p>
+  </footer>
+</html>

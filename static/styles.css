@@ -1,0 +1,136 @@
+/* static/styles.css */
+
+#chat-container {
+    width: 300px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 600px;
+    margin: 50px auto;
+    position: absolute;
+    right: 15px;
+    bottom: 320px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: rgba(133, 130, 130, 0);
+    /*Adjustthealphavalueasneeded*/border-radius: 10px;
+    /*Optional:;
+    addroundedcorners*/padding: 10px;
+    /*Optional: add padding for better visual appearance */    ;
+    background-image: url('/static/images/chat_with_clo.png');
+    background-size: contain;
+    
+}
+
+#chat-messages {
+    height: 175px;
+    overflow-y: scroll;
+    color:rgba(18, 19, 18, 0.952);
+  
+}
+
+.user-message {
+    background-color: blue;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.chatbot-message {
+    background-color: rgba(208, 255, 0, 0.5);
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#user-input-container {
+    margin-top: 5px;
+  
+
+}
+
+#user-input {
+    width: 200px;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('/static/images/AI_ML_Engineer.png');
+    background-size: cover;
+    height: 110vh;
+  }
+  
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+  }
+  
+  .navbar-toggle {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .nav-list li {
+    margin: 0 15px;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-toggle {
+      display: block;
+    }
+  
+    .nav-list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      width: 100%;
+      background-color: #333;
+    }
+  
+    .nav-list.show {
+      display: flex;
+    }
+  }
+
+  
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-image: url('/static/images/page_bg.png');
+  background-size:contain;
+  
+}

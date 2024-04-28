@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - AI and ML Engineer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: blue ;
+            text-align : center ; 
+        }
+
+        .service {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .service h2 {
+            color: #333;
+        }
+
+        .service p {
+            font-size: 16px;
+        }
+
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .service-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        /* Footer styles */
+        footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 0px;
+          position: center;
+          bottom: 0;
+          width: 100%;
+        }
+    
+        /* JavaScript for current year */
+        function getCurrentYear() {
+          var year = new Date().getFullYear();
+          document.getElementById('currentYear').innerHTML = year;
+        }
+
+    </style>
+</head>
+<header>
+    <nav class="navbar">
+        <div class="navbar-toggle" onclick="toggleNav()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+        <ul class="nav-list" >
+            <li><a href="{{('/')}}">Home</a></li>
+            <li><a href="{{url_for('services')}}">Services</a></li>
+            <li><a href="{{url_for('about')}}">About Me</a></li>
+            <li><a href="{{url_for('contact')}}">Request for Discovery Call</a></li>
+            <li><a href="{{url_for('faq')}}">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+    <div class="container">
+    <h1> Services I offer </h1>
+
+    <div class="service">
+        <h2>Machine Learning Development</h2>
+        <p>I provide end-to-end machine learning development services. From problem definition to model deployment, I ensure high-quality solutions tailored to your needs.</p>
+        <ul class="service-list">
+            <li class="service-item"><img src="/static/images/machine_learning_icon.png" alt="Machine Learning Icon"> Custom ML Algorithm Development</li>
+            <li class="service-item"><img src="/static/images/data_processing_icon.jpeg" alt="Data Processing Icon"> Data Preprocessing and Feature Engineering</li>
+            <!-- Add more service items as needed -->
+        </ul>
+    </div>
+
+    <div class="service">
+        <h2>Natural Language Processing</h2>
+        <p>Unlock the power of text and language with my NLP services. From sentiment analysis to language translation, I specialize in leveraging NLP for various applications.</p>
+        <ul class="service-list">
+            <li class="service-item"><img src="/static/images/sentiment_analysis.png" alt="NLP Icon"> Sentiment Analysis</li>
+            <li class="service-item"><img src="/static/images/language_translation_icon.png" alt="Language Translation Icon"> Language Translation</li>
+            <!-- Add more service items as needed -->
+        </ul>
+    </div>
+
+    <div class="service">
+        <h2>Data Science Consulting</h2>
+        <p>Get insights from your data with my data science consulting services. I assist in extracting valuable information, building predictive models, and making data-driven decisions.</p>
+        <ul class="service-list">
+            <li class="service-item"><img src="/static/images/data_analysis_icon.jpeg" alt="Data Analysis Icon"> Data Analysis and Visualization</li>
+            <li class="service-item"><img src="/static/images/predictive_modeling_icon.png" alt="Predictive Modeling Icon"> Predictive Modeling</li>
+            <!-- Add more service items as needed -->
+        </ul>
+    </div>
+
+    <script src="script.js">
+        // You can add additional JavaScript functionality here if needed
+        getCurrentYear();
+    </script>
+</div>
+</body>
+<footer>
+    <p>&copy; Olarewaju Olabisi <span id="currentYear"></span></p>
+  </footer>
+</html>
